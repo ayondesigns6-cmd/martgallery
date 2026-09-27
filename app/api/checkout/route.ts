@@ -294,7 +294,8 @@ export async function POST(req: NextRequest) {
     }
 
     // 5. Generate Formatted WhatsApp Confirmation URL
-    const storePhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801700000000';
+    const rawStorePhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801676711783';
+    const storePhone = rawStorePhone.replace(/[^0-9]/g, '');
     const whatsappUrl = generateWhatsAppLink(storePhone, {
       orderNumber,
       customerName,

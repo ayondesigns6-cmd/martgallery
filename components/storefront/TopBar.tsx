@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { Phone, ShieldCheck, Truck } from 'lucide-react';
 
 export function TopBar() {
-  const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801700000000';
+  const rawPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801676711783';
+  const whatsappPhone = rawPhone.replace(/[^0-9]/g, '');
 
   return (
     <div className="bg-brand-dark text-slate-300 text-xs py-2 border-b border-brand-slate/40">

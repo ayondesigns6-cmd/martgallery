@@ -1,10 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, MapPin, Shield, RotateCcw, Clock } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801700000000';
+  const rawPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801676711783';
+  const whatsappPhone = rawPhone.replace(/[^0-9]/g, '');
 
   return (
     <footer className="bg-brand-dark text-slate-300 pt-16 pb-12 border-t border-brand-slate">
@@ -44,14 +46,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 py-12">
           {/* Brand Col */}
           <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-lg bg-brand-navy border border-brand-gold-500/30 flex items-center justify-center text-brand-gold-400 font-bold text-base">
-                M
-              </div>
-              <span className="text-lg font-bold tracking-tight text-white uppercase">
-                Mart <span className="text-brand-gold-500">Gallery</span>
-              </span>
-            </div>
+            <Link href="/" className="inline-block bg-white rounded-xl px-3 py-2 shadow-sm border border-slate-700/50 hover:opacity-95 transition-opacity">
+              <Image
+                src="/logo.png"
+                alt="Mart Gallery"
+                width={140}
+                height={48}
+                className="h-10 w-auto object-contain"
+              />
+            </Link>
             <p className="text-xs text-slate-400 leading-relaxed">
               Mart Gallery is your premier destination for curated electronics, luxury timepieces, and artisan lifestyle essentials in Bangladesh.
             </p>
@@ -82,6 +85,16 @@ export function Footer() {
                 <Link href="/cart" className="hover:text-brand-gold-400 transition-colors">
                   My Shopping Cart
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://ishmamayon.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-gold-400 transition-colors"
+                >
+                  Developer
+                </a>
               </li>
             </ul>
           </div>
@@ -124,7 +137,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-brand-gold-400 transition-colors"
                 >
-                  WhatsApp: +{whatsappPhone}
+                  WhatsApp: +880 1676-711783
                 </Link>
               </li>
               <li className="flex items-center space-x-2.5">

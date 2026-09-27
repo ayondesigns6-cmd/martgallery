@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard, Package, Tag, ShoppingBag,
@@ -32,9 +33,15 @@ export function AdminSidebar() {
     <div className="flex flex-col h-full">
       {/* Brand */}
       <div className="px-5 py-5 border-b border-white/10">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-brand-gold-600 flex items-center justify-center text-brand-dark font-bold text-base">
-            M
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-white p-1 shadow-sm flex items-center justify-center shrink-0">
+            <Image
+              src="/logo-icon.png"
+              alt="Mart Gallery"
+              width={28}
+              height={28}
+              className="w-7 h-7 object-contain"
+            />
           </div>
           <div>
             <span className="text-sm font-extrabold text-white tracking-tight uppercase">
@@ -91,7 +98,15 @@ export function AdminSidebar() {
       {/* Mobile Top Bar */}
       <div className="lg:hidden flex items-center justify-between px-4 h-14 bg-brand-dark border-b border-white/10 fixed top-0 left-0 right-0 z-30">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-brand-gold-600 flex items-center justify-center text-brand-dark font-bold text-sm">M</div>
+          <div className="w-8 h-8 rounded-lg bg-white p-1 shadow-sm flex items-center justify-center shrink-0">
+            <Image
+              src="/logo-icon.png"
+              alt="Mart Gallery"
+              width={24}
+              height={24}
+              className="w-6 h-6 object-contain"
+            />
+          </div>
           <span className="text-sm font-bold text-white uppercase">Mart Gallery</span>
         </div>
         <button onClick={() => setMobileOpen(true)} className="text-slate-300 hover:text-white p-1">

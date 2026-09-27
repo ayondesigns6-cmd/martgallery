@@ -5,6 +5,10 @@ import { CartProvider } from '@/lib/context/CartContext';
 export const metadata: Metadata = {
   title: 'Mart Gallery | Premium Retail Collection',
   description: 'Shop top quality lifestyle and retail products with trusted fast delivery across Bangladesh at Mart Gallery.',
+  icons: {
+    icon: '/logo-icon.png',
+    apple: '/logo-icon.png',
+  },
 };
 
 export default function RootLayout({

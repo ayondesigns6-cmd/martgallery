@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, Suspense } from 'react';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { createClient, isSupabaseConfigured } from '@/lib/supabase/client';
 import { Lock, Loader2, AlertCircle, Terminal, Copy, Check, AlertTriangle, ShieldCheck } from 'lucide-react';
@@ -228,13 +229,17 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-xl bg-brand-navy border border-brand-gold-500/30 flex items-center justify-center text-brand-gold-400 font-bold text-2xl mx-auto mb-4 shadow-lg">
-            M
+          <div className="inline-block bg-white rounded-2xl p-4 shadow-xl border border-white/10 mb-3">
+            <Image
+              src="/logo.png"
+              alt="Mart Gallery"
+              width={160}
+              height={60}
+              className="h-14 w-auto object-contain mx-auto"
+              priority
+            />
           </div>
-          <h1 className="text-xl font-extrabold text-white tracking-tight uppercase">
-            Mart <span className="text-brand-gold-400">Gallery</span>
-          </h1>
-          <p className="text-xs text-slate-400 mt-1">Admin Control Panel</p>
+          <p className="text-xs text-slate-400">Admin Control Panel</p>
         </div>
 
         {/* Wrap in Suspense — required for useSearchParams in Next.js 14 */}

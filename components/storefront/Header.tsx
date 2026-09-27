@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ShoppingBag, Search, Menu, X, Flame, Sparkles } from 'lucide-react';
 import { useCart } from '@/lib/context/CartContext';
@@ -39,18 +40,15 @@ export function Header({ categories = [] }: HeaderProps) {
           </button>
 
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-brand-navy flex items-center justify-center text-brand-gold-400 font-bold text-lg sm:text-xl shadow-inner group-hover:scale-105 transition-transform">
-              M
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg sm:text-xl font-bold tracking-tight text-brand-navy uppercase">
-                Mart <span className="text-brand-gold-600">Gallery</span>
-              </span>
-              <span className="text-[10px] tracking-widest text-slate-500 uppercase font-medium -mt-1 hidden sm:block">
-                Premium Retail
-              </span>
-            </div>
+          <Link href="/" className="flex items-center group">
+            <Image
+              src="/logo.png"
+              alt="Mart Gallery"
+              width={160}
+              height={50}
+              className="h-11 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation Links */}

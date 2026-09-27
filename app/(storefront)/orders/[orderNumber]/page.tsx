@@ -50,7 +50,8 @@ export default async function OrderConfirmationPage({ params, searchParams }: Or
   const isNewOrder = searchParams.new === 'true';
   const orderData = await getOrderDetails(params.orderNumber);
 
-  const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801700000000';
+  const rawPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801676711783';
+  const whatsappPhone = rawPhone.replace(/[^0-9]/g, '');
 
   const order = orderData?.order;
   const items = orderData?.items || [];

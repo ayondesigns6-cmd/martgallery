@@ -24,7 +24,8 @@ export function ProductDetailView({ product, categoryName }: ProductDetailViewPr
   );
 
   const isAvailable = product.availability === 'in_stock';
-  const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801700000000';
+  const rawPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '8801676711783';
+  const whatsappPhone = rawPhone.replace(/[^0-9]/g, '');
 
   const discountPercent =
     product.compare_at_price && product.compare_at_price > product.price
